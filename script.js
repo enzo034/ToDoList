@@ -1,5 +1,6 @@
 const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-container");
+const inputDate = document.getElementById("input-date");
 
 function addTask()
 {
@@ -10,12 +11,23 @@ function addTask()
     else
     {
         let li = document.createElement("li");
-        li.innerHTML = inputBox.value;
-        listContainer.appendChild(li);
+        let dateSpan = document.createElement("span");
         let span = document.createElement("span");
+
+        li.innerHTML = inputBox.value;
         span.innerHTML = "\u00d7";
+        dateSpan.innerHTML = inputDate.value;
+
+        span.className = "spanDelete";
+        dateSpan.className = "spanDate";
+
         li.appendChild(span);
+        li.appendChild(dateSpan);
+
+        listContainer.appendChild(li);
+
     }
+    inputDate.value = "";
     inputBox.value = "";
     saveData()
 }
@@ -29,7 +41,10 @@ listContainer.addEventListener("click", function(e)
     }
     else if(e.target.tagName === "SPAN")
     {
-        e.target.parentElement.remove();
+        const taskElement = e.target.parentElement;
+        const dateElement = taskElement.nextElementSibling;
+        taskElement.remove();
+        dateElement.remove();
         saveData()
     }
 }, false);
@@ -44,6 +59,13 @@ function showTask()
     listContainer.innerHTML = localStorage.getItem("data");
 }
 showTask()
+
+function deleteAllTasks()
+{
+    listContainer.innerHTML = "";
+    localStorage.clear();   
+}
+
 
 inputBox.addEventListener("keypress", function (e) {
     if (e.key === "Enter") {

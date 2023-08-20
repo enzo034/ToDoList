@@ -19,7 +19,7 @@
     max-width: 540px;
     background: #fff;
     margin: 100px auto 20px;
-    padding: 40px 30px 70px;
+    padding: 40px 30px 50px;
     border-radius: 10px;
 }
 
@@ -55,18 +55,27 @@ input
     background: transparent;
     padding: 10px;
     font-weight: 14px;
+    font-size: 17px;
 }
 
 button
 {
     border: none;
     outline: none;
-    padding: 16px 50px;
+    padding: 10px 50px;
     background: #ff5945;
     color: #fff;
-    font-size: 16px;
+    font-size: 17px;
     cursor: pointer;
     border-radius: 40px;
+}
+
+.deleteButton
+{
+    position: relative;
+    padding: 10px;
+    left: 350px;
+    top: -50px;
 }
 
 ul li
@@ -104,7 +113,7 @@ ul li.checked::before
     background-image: url(img/checked.png);
 }
 
-ul li span
+ul li span.spanDelete
 {
     position: absolute;
     right: 0;
@@ -116,6 +125,16 @@ ul li span
     line-height: 40px;
     text-align: center;
     border-radius: 50%;
+}
+
+ul li span.spanDate
+{
+    position: absolute;
+    right: 45px;
+    top: 18px;
+    font-size: 14px;
+    color: #555;
+    pointer-events: none;
 }
 
 ul li span:hover

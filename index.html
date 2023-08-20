@@ -12,14 +12,15 @@
     <div class="container">
         <div class="todo-app">
             <h2>To Do List <img src="img/icon.png"></h2>
+            <button class="deleteButton" onclick="deleteAllTasks()">Delete all Tasks</button>
             <div class="row">
                 <input type="text" id="input-box" placeholder="Add task">
-                <button onclick="addTask()">Add</button>    
             </div>
+            <div class="row">
+                <input type="date" id="input-date">
+            </div>
+            <button onclick="addTask()">Add</button>  
             <ul id="list-container">
-                <!-- <li class="checked">Task 1</li>
-                <li>Task 2</li>
-                <li>Task 3</li> -->
             </ul>
         </div>
     </div>
